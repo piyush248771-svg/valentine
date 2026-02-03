@@ -1,66 +1,67 @@
-1
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Be My Valentine ❤️</title>
+<title>Harleen ❤️</title>
 
 <style>
   body {
     margin: 0;
     height: 100vh;
-    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    background: linear-gradient(135deg, #ff5f8d, #ff85b3);
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Poppins', sans-serif;
+    font-family: Arial, sans-serif;
   }
 
   .card {
-    background: #fff;
-    padding: 25px;
-    border-radius: 20px;
-    text-align: center;
+    background: #ffffff;
     width: 90%;
-    max-width: 350px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+    max-width: 360px;
+    padding: 30px 20px;
+    border-radius: 22px;
+    text-align: center;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
   }
 
   h1 {
-    color: #ff3d68;
-    font-size: 26px;
+    color: #ff3366;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    color: #444;
     margin-bottom: 25px;
   }
 
   .buttons {
     position: relative;
-    height: 140px;
+    height: 150px;
   }
 
   button {
     border: none;
     border-radius: 30px;
-    padding: 12px 25px;
+    padding: 14px 28px;
     font-size: 18px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease;
   }
 
   #yes {
-    background: #ff3d68;
-    color: white;
-    transform: scale(1);
+    background: #ff3366;
+    color: #fff;
   }
 
   #no {
     background: #ddd;
     color: #333;
     position: absolute;
+    top: 70px;
     right: 20px;
-    top: 60px;
-    transform: scale(1);
   }
 </style>
 </head>
@@ -68,17 +69,35 @@
 <body>
 
 <div class="card">
-  <h1>Will you be my Valentine? ❤️</h1>
+  <h1>Harleen ❤️</h1>
+  <h2>Will you be my Valentine?</h2>
 
   <div class="buttons">
     <button id="yes" onclick="yesClicked()">Yes 💖</button>
     <button id="no" onclick="noClicked()">No 😢</button>
   </div>
+
+  <p style="font-size:12px;color:#777;margin-top:15px;">
+    Tap anywhere to play music 🎶
+  </p>
 </div>
+
+<audio id="music" loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+</audio>
 
 <script>
   let yesScale = 1;
   let noScale = 1;
+  let musicStarted = false;
+
+  document.body.addEventListener("click", function () {
+    if (!musicStarted) {
+      const music = document.getElementById("music");
+      music.play().catch(() => {});
+      musicStarted = true;
+    }
+  });
 
   function noClicked() {
     noScale -= 0.15;
@@ -99,12 +118,12 @@
         display:flex;
         justify-content:center;
         align-items:center;
-        background:linear-gradient(135deg,#ff758c,#ff7eb3);
-        font-family:Poppins,sans-serif;
-        text-align:center;
+        background:linear-gradient(135deg,#ff5f8d,#ff85b3);
         color:white;
+        text-align:center;
+        font-size:28px;
         padding:20px;">
-        <h1>YAYYYY! 💕<br>You’re my Valentine 🥰🌹</h1>
+        YAYYYY 💕<br>Harleen is my Valentine 🥰🌹
       </div>
     `;
   }
